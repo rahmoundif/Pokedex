@@ -1,6 +1,7 @@
 import { useState } from "react";
-import "./App.css"
-import PokemonCard from "./components/PokemonCard"
+import "./App.css";
+import PokemonCard from "./components/PokemonCard";
+import NavBar from "./components/NavBar";
 
 const pokemonList = [
   {
@@ -28,20 +29,16 @@ const pokemonList = [
   },
 ];
 function App() {
-  const[pokemonName , setPokemonName] = useState("bulbasaur");
+  const [pokemonName, setPokemonName] = useState("bulbasaur");
   const pokemon = pokemonList.find((pokemon) => pokemon.name === pokemonName);
 
-  if (pokemon === null){
+  if (pokemon === null) {
     throw new Error("Invalid pokemon name");
   }
   return (
     <>
-    <PokemonCard pokemon ={pokemon} />
-    {pokemonList.map((pmonster, array) => (
-          <nav key={array}>
-            <button onClick={() => setPokemonName(pmonster.name)}>{pmonster.name}</button>
-          </nav>
-        ))}
+      <NavBar setPokemonName={setPokemonName} pokemonList={pokemonList} />
+      <PokemonCard pokemon={pokemon} />
     </>
   );
 }
