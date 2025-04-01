@@ -37,9 +37,9 @@ function App() {
   return (
     <>
     <PokemonCard pokemon ={pokemon} />
-    {pokemonList.map((pmonster, array) => (
+    {pokemonList.map((monster, array) => (
           <nav key={array}>
-            <button onClick={() => setPokemonName(pmonster.name)}>{pmonster.name}</button>
+            <button onClick={() => setPokemonName(monster.name)}>{monster.name}</button>
           </nav>
         ))}
     </>
